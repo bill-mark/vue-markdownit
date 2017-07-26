@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>sk4t</title>
+        <link rel="stylesheet" href="./css/withVue.css"/>
+        <link rel="stylesheet" href="./css/article.min.css"/>
+        <link href="http://cdn.bootcss.com/highlight.js/9.6.0/styles/googlecode.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="articleEditer" class="m-cpnt m-article-editer">
+            <div class="m-editer-area" :class="{'z-full':isScreen}">
+                <header>
+                    <a class="iconfont" v-for="(item,index) in aNavItems" v-html="item.icon" :title="item.title" :class="{'z-atv':item.isAtv}" @click="eNavItemClick(index)"></a>
+                    <a class="iconfont u-screen-tab" v-html="sScreenStatus" @click="eScreenTabClick"></a>
+                </header>
+                <section>
+                    <div class="u-wirte" :class="{'z-half':aEditerModule[1]}">
+                        <textarea v-model="content" @keyDown="eEditerKeyDown($event)"></textarea>
+                    </div>
+                    <div class="u-view" :class="{'z-half':aEditerModule[1],'z-atv':aEditerModule[2]}">
+                        <article v-html="preViewContent"></article>
+                    </div>
+                </section>
+                <footer>
+                    <p>共<b>{{content.length}}</b>字节</p>
+                    <a>提交</a>
+                    <a>取消</a>
+                </footer>
+            </div>
+        </div>
+        <script src="http://cdn.bootcss.com/vue/2.0.0/vue.min.js"></script>
+        <script src="http://cdn.bootcss.com/marked/0.3.6/marked.min.js"></script>
+        <script src="http://cdn.bootcss.com/highlight.js/9.6.0/highlight.min.js"></script>
+        <script src="../src/sk4t.js"></script>
+        <script src="./js/withVue.js"></script>
+    </body>
+</html>
