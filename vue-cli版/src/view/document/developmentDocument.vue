@@ -3,6 +3,8 @@
         <!-- 左侧导航栏 -->
         <sideBar title="API" :sideList="sideList"></sideBar>
         <div class="content-wrap">
+        
+            <div v-html="tocHtmls"></div>
             <div class="my-content">
                 <article v-html="result"></article>
             </div>
@@ -14,6 +16,7 @@
     import sideBar from '../../components/sideBar/sideBar.vue';
     import '../../assets/style/article.min.css';
     import '../../assets/style/default.min.css';
+    import markdownItTocAndAnchor from "markdown-it-toc-and-anchor"
 
     export default {
         components: {sideBar},
@@ -24,7 +27,8 @@
                 md:null,
                 result:null,
                 mkdataurl:null,
-                mkdata:null
+                mkdata:null,
+                tocHtmls:'null444'
             }
         },
         created() {
@@ -36,6 +40,7 @@
                 //console.log(response.data);
                 this.sideList = response.data;
             })   
+
             bus.$on('loadContent', (url) => {
                 this.mkdataurl = url
                 this.axios({
@@ -43,7 +48,7 @@
                     url: this.mkdataurl,
                 }).then( (response) => {
                     this.mkdata = response.data;
-                    this.changemk()
+                    this.changemk(this.tocHtmls)
                 })         
             })       
         },
@@ -55,12 +60,12 @@
                 url: this.mkdataurl,
             }).then( (response) => {
                 this.mkdata = response.data;
-                this.changemk()
+                this.changemk(this.tocHtmls)
             }) 
 
         },
         methods: {
-            changemk(){   
+            changemk(index){   
              var hljs = require('highlight.js');
 
               this.md = require('markdown-it')({
@@ -79,8 +84,15 @@
                     return ''; 
                 }
               })
+              .use(markdownItTocAndAnchor)
+              
+       
+              this.result = this.md.render(this.mkdata,{
+                   tocCallback: (tocMarkdown, tocArray, tocHtml) => {
+                       this.tocHtmls = tocHtml
+                   }
+              }) 
 
-              this.result = this.md.render(this.mkdata)
           }  
         }
     }
