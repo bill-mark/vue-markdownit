@@ -149,7 +149,6 @@ toast消失后调用
 
 c) 代码示例
 ``` js
-
 var btn = document.querySelector('#btn');
 btn.addEventListener('click', function(){
 bridge.showToast({
@@ -169,10 +168,10 @@ bridge.alert(result.confirm);
 
 a) 代码示例
 ``` html
-
 <button id="J_showToast" class="btn btn-default">显示 toast</button>
 <button id="J_hideToast" class="btn btn-default">隐藏 toast</button>
-
+```
+```js
 var showBtn = document.querySelector('#J_showToast');
 var hideBtn = document.querySelector('#J_hideToast');
 showBtn.addEventListener('click', function(){
@@ -181,7 +180,6 @@ bridge.showToast('显示中...');
 hideBtn.addEventListener('click', function(){
 bridge.hideToast();
 });
-
 ```  
 
 #### 2.1.5 ui.showLoading
@@ -200,6 +198,8 @@ a) options 参数说明
 b) 代码示例
 ``` html
 <button id="J_btn" class="btn btn-default">showLoading</button>
+```
+``` js
 <script>
 var btn = document.querySelector('#J_btn');
 btn.addEventListener('click', function(){
@@ -222,8 +222,12 @@ c) 其他说明
 隐藏加载
 
 a) 代码示例
-``` js
+
+``` html
 <button id="J_btn" class="btn btn-default">showLoading</button>
+```
+
+``` js
 <script>
 var btn = document.querySelector('#J_btn');
 btn.addEventListener('click', function(){
@@ -261,8 +265,10 @@ b) callback 参数说明
 |index| Number| 被点击的按钮的索引，从0开始。点击取消或蒙层时返回 -1
 
 c) 代码示例
-``` js
+``` html
 <button id="J_btn" class="btn btn-default">显示 ActionSheet</button>
+```
+``` js
 <script>
   var btn = document.querySelector('#J_btn');
   btn.addEventListener('click', function(){
@@ -305,8 +311,10 @@ b) callback 参数说明
 |end| string| 结束日期
 
 c) 代码示例
-``` js
+``` html
 <button id="J_btn" class="btn btn-default">显示 ActionSheet</button>
+```
+```js
 <script>
   var btn = document.querySelector('#J_btn');
   btn.addEventListener('click', function(){
@@ -351,9 +359,10 @@ b) callback 参数说明
 |name| string| 门店名
 
 c) 代码示例
-``` js
+``` html
 <button id="J_btn" class="btn btn-default">显示 ActionSheet</button>
-
+```
+```js
   var btn = document.querySelector('#J_btn');
   btn.addEventListener('click', function(){
     bridge.storePicker({
@@ -411,8 +420,10 @@ a) options 参数说明
 
 
 b) 代码示例
-``` js
+``` html
 <button id="J_btn" class="btn btn-default">显示 ActionSheet</button>
+```
+``` js
 <script>
   var btn = document.querySelector('#J_btn');
   btn.addEventListener('click', function(){
@@ -441,8 +452,10 @@ a) options 参数说明
 
 
 b) 代码示例
-```
+``` html
 <button id="J_btn" class="btn btn-default">显示 ActionSheet</button>
+```
+``` js
 <script>
   var btn = document.querySelector('#J_btn');
   btn.addEventListener('click', function(){
@@ -496,8 +509,10 @@ b) callback 参数说明
 |data|array| key值
 
 c) 代码示例
-```
+``` html
 <button id="J_btn" class="btn btn-default">显示 ActionSheet</button>
+```
+``` js
 <script>
   var btn = document.querySelector('#J_btn');
   btn.addEventListener('click', function(){
@@ -536,8 +551,10 @@ b) callback 参数说明
 |data|array| 存入数据
 
 c) 代码示例
-```
+``` html
 <button id="J_btn" class="btn btn-default">显示 ActionSheet</button>
+```
+``` js
 <script>
   var btn = document.querySelector('#J_btn');
   btn.addEventListener('click', function(){
@@ -574,8 +591,10 @@ b) callback 参数说明
 |err| string| 错误码
 
 c) 代码示例
-```
+``` html
 <button id="J_btn" class="btn btn-default">显示 ActionSheet</button>
+```
+``` js
 <script>
   var btn = document.querySelector('#J_btn');
   btn.addEventListener('click', function(){
@@ -605,8 +624,10 @@ b) callback 参数说明
 Empty all items which are not default(APP default settings will be reserved)
 
 c) 代码示例
-```
+``` html
 <button id="J_btn" class="btn btn-default">显示 ActionSheet</button>
+```
+``` js
 <script>
   var btn = document.querySelector('#J_btn');
   btn.addEventListener('click', function(){

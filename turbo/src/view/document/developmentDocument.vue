@@ -51,7 +51,9 @@
                         return hljs.highlight(lang, str).value;
                       } catch (__) {}
                     }
+
                     return ''; 
+
                 }
               })
               .use(markdownItTocAndAnchor)
